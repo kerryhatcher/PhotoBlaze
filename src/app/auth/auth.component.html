@@ -1,0 +1,23 @@
+<p>
+    
+    
+    
+    <button mat-raised-button color="accent" [matMenuTriggerFor]="menu">
+        <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">account_box</mat-icon>
+        <span *ngIf="showLoginButton">Login</span>
+        
+        <span *ngIf="showLogoutButton">{{ (user | async)?.email }}</span>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item color="accent" *ngIf="showLogoutButton" >Profile</button>
+        <mat-divider></mat-divider>
+        
+        <button mat-menu-item color="accent" (click)="login()" *ngIf="showLoginButton"><mat-icon >login</mat-icon> Log in with Google</button>
+        <mat-divider></mat-divider>
+
+        <button mat-menu-item color="accent" (click)="logout()" *ngIf="showLogoutButton"><mat-icon >logout</mat-icon>Log out</button>
+        
+        
+    </mat-menu>
+
+</p>
